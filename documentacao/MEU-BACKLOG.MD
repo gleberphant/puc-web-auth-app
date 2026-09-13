@@ -30,13 +30,13 @@ Além da API, desenvolva uma interface web simples para demonstrar o funcionamen
 # requisitos gerais
 
 [x] Funcionamento da autenticação com JWT;
-[_] Correta aplicação dos princípios REST;
-[_] Implementação dos endpoints solicitados;
-[_] Controle de acesso por perfis (RBAC);
-[_] Aplicação de boas práticas de segurança;
-[_] Clareza da documentação;
-[_] Funcionamento geral da solução;
-[_] Capacidade de justificar as decisões adotadas.
+[x] Correta aplicação dos princípios REST;
+[x] Implementação dos endpoints solicitados;
+[x] Controle de acesso por perfis (RBAC);
+[x] Aplicação de boas práticas de segurança;
+[x] Clareza da documentação;
+[x] Funcionamento geral da solução;
+[x] Capacidade de justificar as decisões adotadas.
 
 ## tarefas documentação
 
@@ -65,13 +65,13 @@ Os endpoints devem ser protegidos por regras de autorização. Isso significa qu
 
 Na documentação, explique como uma aplicação parceira poderia acessar sua API utilizando OAuth 2.0; Observação: não é necessário implementar OAuth 2.0. Basta explicar seu funcionamento no contexto da solução proposta;Sua explicação deve contemplar:
 
-[] Concessão de acesso: Como o usuário autoriza o acesso.
-[] Utilização de tokens: Como o token é utilizado para acessar recursos protegidos.
-[] Benefícios: Explique vantagens como maior segurança; delegação de permissões; não compartilhamento de senhas.
+[x] Concessão de acesso: Como o usuário autoriza o acesso.
+[x] Utilização de tokens: Como o token é utilizado para acessar recursos protegidos.
+[x] Benefícios: Explique vantagens como maior segurança; delegação de permissões; não compartilhamento de senhas.
 
 ### Parte 5 – Análise de Segurança
 
-[] Identifique pelo menos três riscos de segurança relacionados à API. Para cada risco apresente uma medida de mitigação.
+[x] Identifique pelo menos três riscos de segurança relacionados à API. Para cada risco apresente uma medida de mitigação.
 
 ## tarefas do sistema
 
@@ -115,26 +115,20 @@ Além da API, desenvolva uma interface web simples para demonstrar o funcionamen
 ## tarefas requisitos atividade
 
 [x] Controle de acesso por perfis (RBAC);
-[_] consultar um usuário específico; filtro na tela de listagem de usuario
-[_] Justificar as decisões adotadas.
-[_] Documentação clara e completa;
-[_] Funcionamento geral da solução;
-[ ] integração OAtuh2
-[_] verificar a aplicação dos princípios REST;
-[_] Aplicação de boas práticas de segurança;
-[ ] configura git actions e conteiners
+[x] consultar um usuário específico; filtro na tela de listagem de usuario
+[x] Justificar as decisões adotadas.
+[X] Documentação clara e completa;
+[x] Funcionamento geral da solução;
+[x] integração OAtuh2
+[x] verificar a aplicação dos princípios REST;
+[x] Aplicação de boas práticas de segurança;
+[x] configura git actions e conteiners
 
 # O envio deverá conter:
 
-[] Código-fonte do projeto: Arquivos do back-end e do front-end.
-[] Documentação da API incluindo: Endpoints; Métodos HTTP; Códigos de resposta; Perfis de acesso; JWT; OAuth 2.0; Análise de segurança.
-[] Evidências de funcionamento apresentadas por meio de: Capturas de tela; Vídeo de demonstração; Link do projeto (quando disponível).
-[] Arquivo README, que deve explicar: Objetivo do projeto; Tecnologias utilizadas; Como instalar; Como executar; Como testar a aplicação.
+[x] Código-fonte do projeto: Arquivos do back-end e do front-end.
+[x] Documentação da API incluindo: Endpoints; Métodos HTTP; Códigos de resposta; Perfis de acesso; JWT; OAuth 2.0; Análise de segurança.
+[x] Evidências de funcionamento apresentadas por meio de: Capturas de tela; Vídeo de demonstração; Link do projeto (quando disponível).
+[x] Arquivo README, que deve explicar: Objetivo do projeto; Tecnologias utilizadas; Como instalar; Como executar; Como testar a aplicação.
 
 Não é necessário publicar a aplicação na internet. Ela pode ser executada localmente e demonstrada por meio de capturas de tela, vídeo ou documentação.
-
----
-
-# relatorio de desenvolvimento
-
-o crud esta concluido; falta implementar consultar um usuario específico por meiod e filtros na tela de listagem

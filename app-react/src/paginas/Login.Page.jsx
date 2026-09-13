@@ -20,10 +20,10 @@ export default function LoginPage({ loginCallback }) {
 
     const f = new FormData(e.target);
 
-    const usuario = await fazerLogin(f.get("login"), f.get("senha"));
+    const [usuario, err] = await fazerLogin(f.get("login"), f.get("senha"));
 
-    if (usuario == null) {
-      alert("Não foi possível realizar o Login");
+    if (err != null || usuario == null) {
+      alert(err);
       setCarregando(false);
       return;
     }

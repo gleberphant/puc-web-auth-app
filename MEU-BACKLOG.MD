@@ -22,10 +22,10 @@ Além da API, desenvolva uma interface web simples para demonstrar o funcionamen
 # requisitos da documentação
 
 [x]Parte 1 – Modelagem da API
-[]Parte 2 – Segurança com JWT
-[]Parte 3 – Controle de acesso (RBAC)
-[]Parte 4 – OAuth 2.0.;Observação: não é necessário implementar OAuth 2.0. Basta explicar seu funcionamento no contexto da solução proposta;
-[]Parte 5 – Análise de Segurança
+[x]Parte 2 – Segurança com JWT
+[x]Parte 3 – Controle de acesso (RBAC)
+[x]Parte 4 – OAuth 2.0.;Observação: não é necessário implementar OAuth 2.0. Basta explicar seu funcionamento no contexto da solução proposta;
+[x]Parte 5 – Análise de Segurança
 
 # requisitos gerais
 

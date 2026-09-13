@@ -18,11 +18,7 @@ export async function fazerLogin(login, senha) {
     // se status diferente de 200
     if (!resposta.ok) {
       throw new Error(
-        "Code:",
-        resposta.status,
-        resposta.statusText,
-        "Body",
-        responseBody,
+        `[${resposta.status} : ${resposta.statusText}] > ${JSON.stringify(responseBody.error)}|`,
       );
     }
 
@@ -36,10 +32,10 @@ export async function fazerLogin(login, senha) {
     localStorage.setItem("token", responseBody.token);
     localStorage.setItem("usuario", responseBody.usuario);
 
-    return responseBody.usuario;
+    return [responseBody.usuario, null];
   } catch (err) {
     console.error(err);
-    return null;
+    return [null, err];
   }
 }
 

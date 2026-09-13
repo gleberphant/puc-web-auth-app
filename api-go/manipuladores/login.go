@@ -3,6 +3,7 @@ package manipuladores
 import (
 	"encoding/json"
 	"log"
+	"net"
 	"net/http"
 	"time"
 
@@ -65,12 +66,17 @@ func LoginPost(res http.ResponseWriter, req *http.Request) {
 	}
 
 	// chama o service
-	usuarioLogado, err := servicos.VerificaLoginSenha(requestBody.Login, requestBody.Senha)
+	ip := req.RemoteAddr
+	if host, _, erroEndereco := net.SplitHostPort(req.RemoteAddr); erroEndereco == nil {
+		ip = host
+	}
+	usuarioLogado, err := servicos.VerificaLoginSenha(requestBody.Login, requestBody.Senha, ip)
 	// confirmação do service
 	if err != nil {
 		log.Printf("Error: %s", err.Error())
-		res.WriteHeader(http.StatusUnauthorized)
-		json.NewEncoder(res).Encode(map[string]string{"error": "Usuario não autorizado"})
+		status := http.StatusUnauthorized
+		res.WriteHeader(status)
+		json.NewEncoder(res).Encode(map[string]string{"error": err.Error()})
 		return
 	}
 

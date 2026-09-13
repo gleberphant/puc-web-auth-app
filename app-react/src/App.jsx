@@ -20,7 +20,9 @@ export default function App() {
   const [usuarioLogado, setUsuarioLogado] = useState(null);
 
   /** TODO:
-   *  criar um midleware para o roteador do front consultar o back se a rota é autorizada ao perfil
+   * a autenticação no front precisa ser também um midleware;
+   * caso usuario não seja autorizado (error 401 ou 403)  ele precisa ser redirecionado para login
+   * criar um midleware para o roteador do front consultar o back se a rota é autorizada ao perfil
    *  posso carregar o mapa de permissoes no FRONT ou então fazer uma consulta em cada rota
    * */
 

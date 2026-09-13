@@ -15,8 +15,41 @@ func InjetarRotasLogin(roteador *http.ServeMux) {
 	roteador.HandleFunc("POST /login", LoginPost)
 }
 
+// retorna o proprio usuario logado
+func LoginGet(res http.ResponseWriter, req *http.Request) {
+	// define struct que vai receber oo body extraido do request
+	var requestBody struct {
+		Uid string `json:"uid"`
+	}
+
+	err := json.NewDecoder(req.Body).Decode(&requestBody)
+	if err != nil {
+		log.Printf("Error Decoder: %s", err.Error())
+		res.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(res).Encode(map[string]string{"error": err.Error()})
+		return
+	}
+
+	// chama o service
+	usuario, err := servicos.ExibirUsuario(requestBody.Uid)
+	// confirmação do service
+	if err != nil {
+		log.Printf("Error: %s", err.Error())
+		res.WriteHeader(http.StatusUnauthorized)
+		json.NewEncoder(res).Encode(map[string]string{"error": "Usuario não autorizado"})
+		return
+	}
+
+	// responde ao cliente
+
+	responseBody := map[string]any{"usuario": usuario}
+	res.WriteHeader(http.StatusOK)
+	json.NewEncoder(res).Encode(responseBody)
+}
+
+// requisição da autenticação de um usuario com username e senha
 func LoginPost(res http.ResponseWriter, req *http.Request) {
-	// define struct que vai receber o request
+	// define struct que vai receber oo body extraido do request
 	var requestBody struct {
 		Login string `json:"login"`
 		Senha string `json:"senha"`
@@ -60,7 +93,10 @@ func LoginPost(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 
+	// body da resposta ao cliente
+	responseBody := map[string]any{"usuario": usuarioLogado, "token": tokenString, "permissoes": map[string][]string{}}
+
 	// responde ao cliente
 	res.WriteHeader(http.StatusOK)
-	json.NewEncoder(res).Encode(map[string]any{"usuario": usuarioLogado, "token": tokenString, "permissoes": map[string][]string{}})
+	json.NewEncoder(res).Encode(responseBody)
 }

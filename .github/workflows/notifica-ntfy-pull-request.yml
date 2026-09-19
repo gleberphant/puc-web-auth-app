@@ -17,4 +17,4 @@ jobs:
         uses: dragonish/send-to-ntfy@v1
         with:
           topic: ${{ secrets.NTFY_TOPIC }}
-          message: "${{ github.repository }}\n\n${{ job.status }}"
+          message: "PULL REQUEST EM : ${{ github.repository }} \n\n ${{ job.status }}"

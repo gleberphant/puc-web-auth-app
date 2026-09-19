@@ -1,0 +1,25 @@
+# Action para notificar a abertura de Pull Requests em um canal do Discord
+# Requer o secret DISCORD_WEBHOOK_URL configurado no repositório
+
+name: Discord Webhook
+
+on:
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  notificar:
+    name: Enviar notificação Discord
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run Discord Webhook
+        uses: johnnyhuy/actions-discord-git-webhook@main
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          censor_username: ${{ github.actor }}
+          repo_name: ${{ github.repository }}

@@ -15,11 +15,7 @@ jobs:
     name: Enviar notificação Discord
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
       - name: Run Discord Webhook
         uses: johnnyhuy/actions-discord-git-webhook@main
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          censor_username: ${{ github.actor }}
-          repo_name: ${{ github.repository }}

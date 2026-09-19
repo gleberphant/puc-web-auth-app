@@ -1,0 +1,20 @@
+name: Notificação ntfy - Pull Request
+
+on:
+  pull_request:
+    types: [opened, reopened]
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  notificar:
+    name: Enviar notificação ntfy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send to ntfy
+        uses: dragonish/send-to-ntfy@v1
+        with:
+          topic: ${{ secrets.NTFY_TOPIC }}
+          message: "PULL REQUEST EM : ${{ github.repository }} \n\n${{ job.status }}"

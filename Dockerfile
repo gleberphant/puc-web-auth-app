@@ -1,5 +1,5 @@
 # essa imagem terá um servidor openssh rodando e as dependencias para compilar e rodar aplicações em Go, Node.js e SQLite.
-# para que possamos acessar o container via ssh e usa-lo para desenvolvimento.
+# para que possamos acessar o container via ssh e fausa-lo para desenvolvimento.
 
 FROM golang:1.26-trixie
 
@@ -25,7 +25,7 @@ RUN mkdir -p /var/run/sshd \
     && sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
     && sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
-EXPOSE 3000 8080 22
+EXPOSE 4000 8080 22
 
 # Script inline para iniciar o sshd e manter o container ativo com bash
 CMD ["/bin/bash", "-c", "/usr/sbin/sshd && exec bash"]
@@ -33,7 +33,7 @@ CMD ["/bin/bash", "-c", "/usr/sbin/sshd && exec bash"]
     && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y --no-install-recommends nodejs
 
-EXPOSE 3000 8080 22
+EXPOSE 4000 8080 22
 
 CMD ["bash"]
 

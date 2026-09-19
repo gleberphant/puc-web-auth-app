@@ -5,23 +5,22 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/gleberphant/puc-react-app/api-go/configs"
 	"github.com/gleberphant/puc-react-app/api-go/intermediarios"
 	"github.com/gleberphant/puc-react-app/api-go/manipuladores"
-)
-
-const (
-	AMBIENTE string = "dev"
-	PORTA    string = ":4000"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	godotenv.Load()
+
 	roteador := http.NewServeMux()
 
 	manipuladores.InjetarRotasLogin(roteador)
 	manipuladores.InjetarRotasPage(roteador)
 	manipuladores.InjetarRotasUsuarios(roteador)
 
-	handler := intermediarios.ApplicationMiddleware(
+	handler := intermediarios.ReqSizeMiddleware(
 		intermediarios.LogMidleware(
 			intermediarios.AuthMidleware(
 				roteador,
@@ -31,7 +30,7 @@ func main() {
 	handler = intermediarios.CorsMiddleware(handler)
 
 	servidor := http.Server{
-		Addr:              PORTA,
+		Addr:              configs.PORTA,
 		Handler:           handler,
 		ReadHeaderTimeout: 5 * time.Second,
 		ReadTimeout:       15 * time.Second,
@@ -40,7 +39,7 @@ func main() {
 		MaxHeaderBytes:    1 << 20,
 	}
 
-	log.Printf("\n Starting API server. Ambiente %s \n", AMBIENTE)
+	log.Printf("\n Starting API server. Ambiente %s \n", configs.AMBIENTE)
 
 	if err := servidor.ListenAndServe(); err != nil {
 		log.Printf("\n Erro no servidor api... %v", err.Error())

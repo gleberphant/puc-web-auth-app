@@ -6,6 +6,7 @@ import (
 	"github.com/gleberphant/puc-react-app/api-go/modelos"
 	"github.com/gleberphant/puc-react-app/api-go/repositorios"
 	"github.com/google/uuid"
+	"golang.org/x/crypto/bcrypt"
 )
 
 var repoUsuario []modelos.Usuario = repositorios.RepositorioUsuariosMock()
@@ -20,6 +21,13 @@ func CriarUsuarios(novoUsuario modelos.Usuario) error {
 			return errors.New("usuario ja existe")
 		}
 	}
+
+	senhaCriptografada, err := bcrypt.GenerateFromPassword([]byte(novoUsuario.Senha), bcrypt.DefaultCost)
+	if err != nil {
+		return err
+	}
+
+	novoUsuario.Senha = string(senhaCriptografada)
 
 	repoUsuario = append(repoUsuario, novoUsuario)
 	return nil
@@ -42,6 +50,13 @@ func ExibirUsuario(uid string) (*modelos.Usuario, error) {
 }
 
 func EditarUsuarios(novoUsuario modelos.Usuario) error {
+	senhaCriptografada, err := bcrypt.GenerateFromPassword([]byte(novoUsuario.Senha), bcrypt.DefaultCost)
+	if err != nil {
+		return err
+	}
+
+	novoUsuario.Senha = string(senhaCriptografada)
+
 	for i := range repoUsuario {
 		if repoUsuario[i].Uid == novoUsuario.Uid {
 			repoUsuario[i] = novoUsuario

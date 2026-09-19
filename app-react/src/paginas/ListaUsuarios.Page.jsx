@@ -1,7 +1,7 @@
 import "../estilos/ListaUsuarios.Page.css";
 
 import { useEffect, useState } from "react";
-import { Button, Spinner, Table } from "react-bootstrap";
+import { Button, Spinner, Table, Alert } from "react-bootstrap";
 
 import {
   EditarUsuario,
@@ -14,6 +14,7 @@ import EditarUsuarioModal from "./EditarUsuario.Modal";
 import ExibirUsuarioModal from "./ExibirUsuario.Modal";
 
 export default function ListaUsuariosPage() {
+  const [mensagem, setMensagem] = useState("");
   const [listaUsuarios, setListaUsuarios] = useState([]);
   const [carregando, setCarregando] = useState(true);
   const [excluindo, setExcluindo] = useState(false);
@@ -43,7 +44,9 @@ export default function ListaUsuariosPage() {
 
       if (erro) {
         setListaUsuarios([]);
-        alert(`Falha no carregamento da lista: ${erro.message}`);
+        //alert(`Falha no carregamento da lista: ${erro.message}`);
+
+        setMensagem(`${erro.message}`);
       } else {
         setListaUsuarios(lista);
       }
@@ -105,6 +108,12 @@ export default function ListaUsuariosPage() {
 
   return (
     <div className="lista-usuarios">
+      {mensagem && (
+        <Alert variant="danger" dismissible onClose={() => setMensagem("")}>
+          {mensagem}
+        </Alert>
+      )}
+
       <ExibirUsuarioModal
         usuarioSelecionado={usuarioSelecionado}
         show={modalAberta === "detalhes"}

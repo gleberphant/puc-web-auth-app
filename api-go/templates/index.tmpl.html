@@ -1,98 +1,178 @@
 {{ define "index" }}
-<html>
-<title>README</title>
-
-<body>
-
-
-  <div align="center">
-
-    <IMG src="https://www.pucpr.br/wp-content/themes/pucpr/_assets/images/logo-pucpr-vermelha.svg">
-    <div>
-      <p align="center">Desenvolvido por HANDERSON GLEBER (gr4v4t1nh4) </p>
-
-
-      <p align="center">Gostou do projeto? Por favor considere <a
-          href="http://link.mercadopago.com.br/handersongleber">fazer uma doação</a> para ajudar a melhorá-lo!</p>
-
-    </div>
-
-
-    <div style="border-style: solid;  border-radius: 10px; border-color: gray; padding: 20px;margin: 10px;">
-      <h2>🐙 Objetivo do projeto (Descrição)</h2>
-
-      <p>Atividades práticas da disciplina de `Dev Ops e de Desenvolvimento WEB`, do curso de Análise e Desenvolvimento
-        de Sistemas da PUC PR.
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>README | Aplicativo de autenticação</title>
+  </head>
+  <body
+    style="
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+    "
+  >
+    <header
+      style="
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+      "
+    >
+      <img
+        src="https://www.pucpr.br/wp-content/themes/pucpr/_assets/images/logo-pucpr-vermelha.svg"
+        alt="PUC Paraná"
+        style="max-width: 220px; height: auto; margin-bottom: 16px"
+      />
+      <h1 style="margin: 0 0 8px">Aplicativo de autenticação</h1>
+      <p style="margin: 0">
+        Projeto acadêmico de cadastro de usuários, login e autenticação com JWT.
       </p>
-    </div>
+    </header>
 
-    <div  style="border-style: solid;  border-radius: 10px; border-color: gray; padding: 20px;margin: 10px;">
+    <main>
+      <nav style="margin-bottom: 24px">
+        <a href="/">README</a>
+        |
+        <a href="/sobre">Mais sobre o autor</a>
+      </nav>
 
-      <h2>💻 Tecnologias utilizadas (Pré-requisitos)</h2>
-      <p>
-        Antes de começar, verifique os requisitos do projeto:
+      <section>
+        <h2>Objetivo</h2>
+        <p>
+          Este projeto foi desenvolvido para as atividades práticas das
+          disciplinas de DevOps e Desenvolvimento Web do curso de Análise e
+          Desenvolvimento de Sistemas da PUC Paraná.
+        </p>
+        <p>
+          A aplicação demonstra um fluxo completo de gerenciamento de usuários,
+          autenticação e autorização em uma arquitetura com backend e frontend.
+        </p>
+      </section>
 
-        - `Golang 1.26.6`
-        - `Node 1.24`
-        - `Docker 29.7.2`
-      </p>
+      <section>
+        <h2>Tecnologias</h2>
+        <ul>
+          <li>Golang no backend e na API HTTP.</li>
+          <li>React e Vite no frontend.</li>
+          <li>JWT para autenticação.</li>
+          <li>Docker para execução do ambiente.</li>
+          <li>SQLite e PostgreSQL como opções de persistência.</li>
+        </ul>
+      </section>
 
-    </div>
-    <div style="border-style: solid;  border-radius: 10px; border-color: gray; padding: 20px;margin: 10px;">
-      <h2>🚀 Instalação do projeto</h2>
-      <p>
-        Em um terminal de comando digite :
+      <section>
+        <h2>Pré-requisitos</h2>
+        <ul>
+          <li>Golang 1.26.6</li>
+          <li>Node.js 1.24</li>
+          <li>Docker 29.7.2</li>
+        </ul>
+      </section>
 
-        ```
-        Docker run -it -p 8080:8080 -p 3000:3000 -p 22:22 -v $(pwd):/app -w /app --name meu-app-dev-run
-        meu-app-dev-image
-        ```
-      </p>
+      <section>
+        <h2>Execução com Docker</h2>
+        <p>Na raiz do projeto, execute:</p>
+        <pre
+          style="
+            overflow-x: auto;
+            padding: 16px;
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+          "
+        ><code>docker run -it -p 8080:8080 -p 3000:3000 -p 22:22 \
+  -v $(pwd):/app -w /app --name meu-app-dev-run meu-app-dev-image</code></pre>
+      </section>
 
-      <h3> 🚀 Como executar</h3>
-      <p> </p>
+      <section>
+        <h2>Como executar</h2>
+        <ol>
+          <li>Inicie a API Go na porta 8080.</li>
+          <li>Inicie o aplicativo React na porta 3000.</li>
+          <li>Acesse o aplicativo pelo navegador.</li>
+        </ol>
+      </section>
 
-      <h3> 🚀 Como testar </h3>
+      <section>
+        <h2>Como testar</h2>
+        <p>
+          Os arquivos da pasta <code>test-api</code> descrevem as requisições de
+          cadastro, login, consulta, edição e exclusão de usuários.
+        </p>
+        <p>Para validar o backend, execute:</p>
+        <pre
+          style="
+            overflow-x: auto;
+            padding: 16px;
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+          "
+        ><code>cd api-go
+go test ./...</code></pre>
+      </section>
 
-      <p> </p>
+      <section>
+        <h2>Autor</h2>
+        <p>
+          Desenvolvido por Handerson Gleber de Lima Cavalcanti, também conhecido
+          como Gravatinha.
+        </p>
+        <p>
+          <a
+            href="https://github.com/gleberphant"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+          |
+          <a
+            href="https://www.linkedin.com/in/handersongleber/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+        </p>
+      </section>
 
-    </div>
-    <div style="border-style: solid;  border-radius: 10px; border-color: gray; padding: 20px;margin: 10px;">
-      <h2>😄 Autor</h2>
-      <p>
-        HANDERSON GLEBER DE LIMA CAVALCANTI (GRAVATINHA)
+      <section>
+        <h2>Licença e apoio</h2>
+        <p>Este projeto está sob licença livre.</p>
+        <p>
+          Se este projeto for útil, considere dar uma estrela no GitHub, citar o
+          autor e apoiar seu desenvolvimento.
+        </p>
+        <p>
+          <a
+            href="http://link.mercadopago.com.br/handersongleber"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Apoiar pelo Mercado Pago</a
+          >
+          |
+          <a
+            href="https://www.paypal.com/donate/?business=GZCPGEVTCZ8VW&amp;no_recurring=0&amp;currency_code=USD"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Apoiar pelo PayPal</a
+          >
+        </p>
+      </section>
+    </main>
 
-        E- mail: handerson.gleber@gmail.com
-
-        https://www.instagram.com/handersongleber/
-
-      </p>
-    </div>
-    <div style="border-style: solid;  border-radius: 10px; border-color: gray; padding: 20px;margin: 10px;">
-      <h2>📝 Licença</h2>
-
-      <p>Esse projeto está sob licença livre.</p>
-
-    </div>
-    <div style="border-style: solid;  border-radius: 10px; border-color: gray; padding: 20px;margin: 10px;">
-      <h2>🤝 Apoie o autor</h2>
-      <p>
-        Se você estiver satisfeito com esse projeto ou quiser me encorajar a continuar criando coisas legais, considere
-        me apoiar:
-      </p>
-      <p>
-      <ul>
-        <il> Dando os devidos créditos caso utilize meu código</il>
-        <il> Dando uma estrela (Starring) e compartilhando o projeto 🚀</il>
-        <il> Me Pagando um café [![Static
-          Badge](https://img.shields.io/badge/Mercado_Livre-blue)]("http://link.mercadopago.com.br/handersongleber") ou
-          [![paypal](https://img.shields.io/badge/Pay_Pal-blue)]("https://www.paypal.com/donate/?business=GZCPGEVTCZ8VW&no_recurring=0&currency_code=USD")
-        </il>
-      </ul>
-      </p>
-    </div>
-  </div>
-</body>
-
+    <footer
+      style="
+        border-top: 1px solid #ccc;
+        margin-top: 32px;
+        padding-top: 16px;
+        color: #666;
+      "
+    >
+      <small>Aplicativo de autenticação | Handerson Gleber</small>
+    </footer>
+  </body>
 </html>
 {{ end }}

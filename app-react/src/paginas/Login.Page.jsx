@@ -19,15 +19,16 @@ export default function LoginPage({ loginCallback }) {
     setCarregando(true);
 
     const f = new FormData(e.target);
-    const usuario = await fazerLogin(f.get("login"), f.get("senha"));
 
-    if (usuario == null) {
-      alert("NÃO POSSÍVEL REALIZAR LOGIN");
-      console.error("falha no login");
+    const [usuario, err] = await fazerLogin(f.get("login"), f.get("senha"));
+
+    if (err != null || usuario == null) {
+      alert(err);
       setCarregando(false);
       return;
     }
 
+    console.log("Usuario recebido ", usuario);
     loginCallback(usuario);
     setCarregando(false);
   };

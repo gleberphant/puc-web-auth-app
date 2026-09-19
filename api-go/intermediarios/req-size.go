@@ -2,7 +2,7 @@ package intermediarios
 
 import "net/http"
 
-func ApplicationMiddleware(next http.Handler) http.Handler {
+func ReqSizeMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
 		// prepara a resposta
 		res.Header().Set("Content-Type", "application/json")

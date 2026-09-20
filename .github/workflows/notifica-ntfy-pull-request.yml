@@ -1,3 +1,4 @@
+# Action para notificar por ntfy
 name: Notificação ntfy - Pull Request
 
 on:

@@ -1,5 +1,5 @@
 # Action para linter e testes de Integração
-name: Testes de Qualidade do Códigos
+name: Lints de Códigos
 on:
   pull_request:
     branches: [master]

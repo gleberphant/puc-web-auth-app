@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 	"folders": [
 		{
 			"path": "."
@@ -6,4 +7,11 @@
 	],
 	"settings": {},
 	"window.restoreWindows": "none"
+=======
+    "folders": [
+        {
+            "path": "."
+        }
+    ]
+>>>>>>> 513f7f4 (	new file:   .firebase/hosting.YXBwLXJlYWN0L2Rpc3Q.cache)
 }

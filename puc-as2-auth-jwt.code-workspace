@@ -3,5 +3,7 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {},
+	"window.restoreWindows": "none"
 }

@@ -1,11 +1,23 @@
 package intermediarios
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/gleberphant/puc-react-app/api-go/configs"
+)
 
 func CorsMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
-		// Origem permitida pelo frontend Vite.
-		res.Header().Set("Access-Control-Allow-Origin", "http://localhost:5173")
+		origin := req.Header.Get("Origin")
+		allowedOrigin := configs.CORS_ORIGIN
+
+		if allowedOrigin == "*" {
+			res.Header().Set("Access-Control-Allow-Origin", "*")
+		} else if origin != "" && (origin == allowedOrigin || origin == "http://localhost:5173") {
+			res.Header().Set("Access-Control-Allow-Origin", origin)
+		} else {
+			res.Header().Set("Access-Control-Allow-Origin", allowedOrigin)
+		}
 
 		// Métodos HTTP permitidos
 		res.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")

@@ -1,4 +1,5 @@
-const REQUEST_URL = "http://localhost:4000/login";
+const REQUEST_URL = "https://api-go-363261584146.us-central1.run.app/login";
+//const REQUEST_URL = "http://localhost:4000/login";
 
 // faz o request api/login e armazena o jwt no local storage
 export async function fazerLogin(login, senha) {

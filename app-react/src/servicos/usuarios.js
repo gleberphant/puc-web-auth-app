@@ -1,6 +1,7 @@
 import { CheckToken } from "./autenticacao";
 
-const HOST_URL = "http://localhost:4000";
+//const HOST_URL = "http://localhost:4000";
+const HOST_URL = "https://api-go-363261584146.us-central1.run.app/";
 
 const ENDPOINT = {
   CRIAR: { URL: () => `${HOST_URL}/usuarios`, METODO: "POST" },
